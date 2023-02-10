@@ -5,11 +5,11 @@ class Landing extends Component {
         pageTitle:"Hello", 
         customersCount: 5,
         customers: [
-            {id: 1, name: "Scott", phone: "123-456", address: {city: "Nairobi"}},
-            {id: 2, name: "Jones", phone: "982-014", address: {city: "Kisumu"}},
-            {id: 3, name: "Allen", phone: "889-921", address: {city: "Mombasa"}},
-            {id: 4, name: "James", phone: "552-901", address: {city: "Nairobi"}},
-            {id: 5, name: "John", phone: "781-778", address: {city: "Nyahera"}},
+            {id: 1, name: "Scott", phone: "123-456", address: {city: "Nairobi"}, photo: "https://picsum.photos/id/1010/60"},
+            {id: 2, name: "Jones", phone: "982-014", address: {city: "Kisumu"}, photo: "https://picsum.photos/id/1011/60"},
+            {id: 3, name: "Allen", phone: "889-921", address: {city: "Mombasa"}, photo: "https://picsum.photos/id/1012/60"},
+            {id: 4, name: "James", phone: null, address: {city: "Nairobi"}, photo: "https://picsum.photos/id/1013/60"},
+            {id: 5, name: "John", phone: null, address: {city: "Nyahera"}, photo: "https://picsum.photos/id/1014/60"},
         ]
     };
     render() {
@@ -30,16 +30,7 @@ class Landing extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.customers.map(customer => {
-                            return (
-                                <tr key={customer.id}>
-                                    <td>{customer.id}</td>
-                                    <td>{customer.name}</td>
-                                    <td>{customer.phone}</td>
-                                    <td>{customer.address.city}</td>
-                                </tr>
-                            )
-                        })}
+                        {this.getCustomerRow()}
                     </tbody>
                 </table> 
             </>
@@ -48,7 +39,32 @@ class Landing extends Component {
 
     onRefreshClick = () => {
         this.setState({customersCount: 0});
-    }
+    };
+
+    getPhoneToRender = (phone) => {
+        // {phone ?? <span className='text-danger'>Not available</span> }
+        if(phone) {
+            return phone;
+        } else {
+            return <span className='text-danger'>Not available</span>;
+        }
+    };
+
+    getCustomerRow = () => {
+        return (
+            this.state.customers.map(customer => {
+                return (
+                    <tr key={customer.id}>
+                        <td>{customer.id}</td>
+                        <td><img src={customer.photo} alt="customer" /></td>
+                        <td>{customer.name}</td>
+                        <td>{ this.getPhoneToRender(customer.phone) }</td>
+                        <td>{customer.address.city}</td>
+                    </tr>
+                );
+            })
+        );
+    };
 }
 
 export default Landing;
