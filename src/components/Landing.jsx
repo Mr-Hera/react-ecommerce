@@ -12,6 +12,13 @@ class Landing extends Component {
             {id: 5, name: "John", phone: null, address: {city: "Nyahera"}, photo: "https://picsum.photos/id/1014/60"},
         ]
     };
+
+    customerNameStyle = (customerName) => {
+        if(customerName.startsWith('S')) return{backgroundColor: "green"};
+        else if(customerName.startsWith('J')) return{backgroundColor: "red"};
+        else return{};
+    };
+
     render() {
         return(
             <>
@@ -24,6 +31,7 @@ class Landing extends Component {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Photo</th>
                             <th>Customer Name</th>
                             <th>Phone</th>
                             <th>City</th>
@@ -57,7 +65,7 @@ class Landing extends Component {
                     <tr key={customer.id}>
                         <td>{customer.id}</td>
                         <td><img src={customer.photo} alt="customer" /></td>
-                        <td>{customer.name}</td>
+                        <td style={this.customerNameStyle(customer.name)}>{customer.name}</td>
                         <td>{ this.getPhoneToRender(customer.phone) }</td>
                         <td>{customer.address.city}</td>
                     </tr>
