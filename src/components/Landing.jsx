@@ -14,9 +14,9 @@ class Landing extends Component {
     };
 
     customerNameStyle = (customerName) => {
-        if(customerName.startsWith('S')) return{backgroundColor: "green"};
-        else if(customerName.startsWith('J')) return{backgroundColor: "red"};
-        else return{};
+        if(customerName.startsWith('S')) return "green-highlight border-left";
+        else if(customerName.startsWith('J')) return "red-highlight border-right";
+        else return "";
     };
 
     render() {
@@ -65,7 +65,7 @@ class Landing extends Component {
                     <tr key={customer.id}>
                         <td>{customer.id}</td>
                         <td><img src={customer.photo} alt="customer" /></td>
-                        <td style={this.customerNameStyle(customer.name)}>{customer.name}</td>
+                        <td className={this.customerNameStyle(customer.name)}>{customer.name}</td>
                         <td>{ this.getPhoneToRender(customer.phone) }</td>
                         <td>{customer.address.city}</td>
                     </tr>
