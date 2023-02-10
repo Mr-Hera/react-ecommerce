@@ -1,15 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import NavBar from './components/NavBar'
+import Landing from './components/Landing'
 import './App.css';
 
 function App() {
   return (
     <>
-      <h1>
-        Hello
-      </h1> 
-      <p className='highlight'>
-        paragraph
-      </p> 
+      <NavBar />
+      <Landing />
     </>
   );
 }
