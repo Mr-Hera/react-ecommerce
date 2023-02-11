@@ -13,12 +13,6 @@ class Landing extends Component {
         ]
     };
 
-    customerNameStyle = (customerName) => {
-        if(customerName.startsWith('S')) return "green-highlight border-left";
-        else if(customerName.startsWith('J')) return "red-highlight border-right";
-        else return "";
-    };
-
     render() {
         return(
             <>
@@ -60,18 +54,39 @@ class Landing extends Component {
 
     getCustomerRow = () => {
         return (
-            this.state.customers.map(customer => {
+            this.state.customers.map((customer, index) => {
                 return (
                     <tr key={customer.id}>
                         <td>{customer.id}</td>
-                        <td><img src={customer.photo} alt="customer" /></td>
-                        <td className={this.customerNameStyle(customer.name)}>{customer.name}</td>
+                        <td>
+                            <img src={customer.photo} alt="customer" />
+                            <div>
+                                <button className="btn btn-sm btn-secondary" onClick={() => {
+                                    this.onChangePictureClick(index);
+                                }}>
+                                    Change Picture
+                                </button>
+                            </div>
+                        </td>
+                        <td>{customer.name}</td>
                         <td>{ this.getPhoneToRender(customer.phone) }</td>
                         <td>{customer.address.city}</td>
                     </tr>
                 );
             })
         );
+    };
+
+    // receives customer object and index of currently clicked user
+    onChangePictureClick =(index) => {
+        // console.log(customer, index);
+
+        // get existing customers
+        let customerArray = this.state.customers;
+        customerArray[index].photo = "https://picsum.photos/id/104/60";
+
+        // update existing customer via index provided
+        this.setState({customers: customerArray});
     };
 }
 
