@@ -25,13 +25,50 @@ class ShoppingCart extends Component {
                                 // productName={product.productName}
                                 // price={product.price}
                                 product={product}
-                            />
+                                onIncrement={this.handleIncrement}
+                                onDecrement={this.handleDecrement}
+                            >
+                                <button className="btn btn-primary">Buy Now</button>
+                            </Product>
                         );
                     })}
                 </div>
             </div>
         );
     }
+
+    // executes when user clicks the + button
+    handleIncrement = (product, maxValue) => {
+        // clone products state array
+        let allProducts = [...this.state.products];
+        // find index of current product toggled
+        let index = allProducts.indexOf(product);
+
+        if(allProducts[index].quantity < maxValue) {
+            // update current product quantity
+            allProducts[index].quantity++;
+        };
+        
+
+        // update products state
+        this.setState({ products: allProducts });
+    };
+
+    // executes when user clicks the - button
+    handleDecrement = (product, minValue) => {
+        // clone products state array
+        let allProducts = [...this.state.products];
+        // find index of current product toggled
+        let index = allProducts.indexOf(product);
+
+        if(allProducts[index].quantity >  minValue) {
+            // update current product quantity
+            allProducts[index].quantity--;
+        };
+
+        // update products state
+        this.setState({ products: allProducts });
+    };
 }
 
 export default ShoppingCart;
