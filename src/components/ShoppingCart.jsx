@@ -21,9 +21,10 @@ class ShoppingCart extends Component {
                         return (
                             <Product 
                                 key={product.id}
-                                id={product.id}
-                                productName={product.productName}
-                                price={product.price}
+                                // id={product.id}
+                                // productName={product.productName}
+                                // price={product.price}
+                                product={product}
                             />
                         );
                     })}
