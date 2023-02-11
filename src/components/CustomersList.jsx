@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Landing extends Component {
+class CustomersList extends Component {
     state = {
         pageTitle:"Hello", 
         customersCount: 5,
@@ -90,4 +90,4 @@ class Landing extends Component {
     };
 }
 
-export default Landing;
+export default CustomersList;
