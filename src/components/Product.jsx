@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-
 class Product extends Component {
     state = {
         // id: this.props.product.id,
@@ -13,7 +12,12 @@ class Product extends Component {
             <div className="col-lg-6">
                 <div className="card m-2">
                     <div className="card-body">
-                        <div className="text-muted"># {this.state.product.id}</div>
+                        <div className="text-muted">
+                            # {this.state.product.id}
+                            <span className="pull-right hand-icon" onClick={() => this.props.onDelete(this.state.product)}>
+                                <i className="fa fa-times"></i>
+                            </span>
+                        </div>
                         <h5 className="pt-5 border-top">+ {this.state.product.productName}</h5>
                         <div>${this.state.product.price}</div>
                     </div>
