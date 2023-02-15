@@ -67,9 +67,13 @@ class ShoppingCart extends Component {
     componentDidUpdate(prevProps, prevState) {
         console.log("componentDidUpdate - ShoppingCart", prevProps, prevState, this.props, this.state);
 
-        if(prevProps.x != this.props.x) {
+        // if(prevProps.x != this.props.x) {
             // make http call
-        };
+        // };
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount - ShoppingCart");
     }
 
     // executes when user clicks the + button

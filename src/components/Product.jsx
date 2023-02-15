@@ -43,6 +43,10 @@ class Product extends Component {
             </div>
         );
     }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount - Product");
+    }
 };
 
 export default Product;
