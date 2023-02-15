@@ -4,8 +4,9 @@ class Login extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            email: "test@example.com",
-            password: "password",
+            email: "",
+            password: "",
+            message: "",
         };
     }
 
@@ -15,6 +16,8 @@ class Login extends Component{
                 <h4 className="m-1 p-2 border-bottom">
                     Login
                 </h4>
+
+                {this.state.message}
 
                 {/* Email */}
                 <div className="form-group form-row p-2">
@@ -36,7 +39,22 @@ class Login extends Component{
     }
 
     onLoginClick = () => {
-        console.log(this.state);
+        // console.log(this.state);
+        if(this.state.email === "test@example.com" && this.state.password === "password") {
+            // success message
+            this.setState({
+                message: (
+                    <span className="text-success">"Login Successful!"</span>
+                ),
+            });
+        } else {
+            // error message
+            this.setState({
+                message: (
+                    <span className="text-danger">"Login Failed!"</span>
+                ),
+            });
+        }
     }
 }
 
