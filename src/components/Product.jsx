@@ -1,13 +1,18 @@
 import React, { Component } from "react"
 class Product extends Component {
-    state = {
-        // id: this.props.product.id,
-        // productName: this.props.product.productName,
-        // price: this.props.product.price,
-        product: this.props.product
+    constructor(props) {
+        console.log("Constructor - Product");
+        super(props);
+        this.state = {
+            // id: this.props.product.id,
+            // productName: this.props.product.productName,
+            // price: this.props.product.price,
+            product: this.props.product
+        }
     }
     render() {
-        console.log(this.props);
+        console.log("Render - Product");
+        // console.log(this.props);
         return (
             <div className="col-lg-6">
                 <div className="card m-2">
@@ -42,6 +47,14 @@ class Product extends Component {
                 </div>
             </div>
         );
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount - Product");
+    }
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate - Product");
     }
 
     componentWillUnmount() {

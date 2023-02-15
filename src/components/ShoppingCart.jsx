@@ -3,20 +3,20 @@ import Product from './Product';
 
 class ShoppingCart extends Component {
     // set up consutructor
-    constructor() {
+    constructor(props) {
         console.log("constructor - ShoppingCart");
         // calling super
-        super();
+        super(props);
 
         // initialize state
         this.state = {
             products: [
                 {id: 1, productName: "Iphone", price: 8900, quantity: 0},
-                {id: 2, productName: "Sony Camera", price: 4500, quantity: 0},
-                {id: 3, productName: "Samsung QLED TV", price: 7745, quantity: 0},
-                {id: 4, productName: "Ipad Pro", price: 12400, quantity: 0},
-                {id: 5, productName: "Xbox", price: 7780, quantity: 0},
-                {id: 6, productName: "Dell Monitor", price: 8880900, quantity: 0},
+                // {id: 2, productName: "Sony Camera", price: 4500, quantity: 0},
+                // {id: 3, productName: "Samsung QLED TV", price: 7745, quantity: 0},
+                // {id: 4, productName: "Ipad Pro", price: 12400, quantity: 0},
+                // {id: 5, productName: "Xbox", price: 7780, quantity: 0},
+                // {id: 6, productName: "Dell Monitor", price: 8880900, quantity: 0},
             ],
         };
     };
@@ -75,6 +75,11 @@ class ShoppingCart extends Component {
     componentWillUnmount() {
         console.log("componentWillUnmount - ShoppingCart");
     }
+
+    // componentDidCatch(error, info) {
+    //     console.log("componentDidCatch - ShoppingCart", error, info);
+    //     localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
+    // }
 
     // executes when user clicks the + button
     handleIncrement = (product, maxValue) => {
