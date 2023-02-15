@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ShoppingCart />
+      <ShoppingCart x="10" />
       {/* <CustomersList /> */}
     </>
   );

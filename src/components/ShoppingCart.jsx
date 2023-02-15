@@ -2,17 +2,37 @@ import React, { Component } from 'react';
 import Product from './Product';
 
 class ShoppingCart extends Component {
-    state = {
-        products: [
-            {id: 1, productName: "Iphone", price: 8900, quantity: 0},
-            {id: 2, productName: "Sony Camera", price: 4500, quantity: 0},
-            {id: 3, productName: "Samsung QLED TV", price: 7745, quantity: 0},
-            {id: 4, productName: "Ipad Pro", price: 12400, quantity: 0},
-            {id: 5, productName: "Xbox", price: 7780, quantity: 0},
-            {id: 6, productName: "Dell Monitor", price: 8880900, quantity: 0},
-        ],
+    // set up consutructor
+    constructor() {
+        console.log("constructor - ShoppingCart");
+        // calling super
+        super();
+
+        // initialize state
+        this.state = {
+            products: [
+                {id: 1, productName: "Iphone", price: 8900, quantity: 0},
+                {id: 2, productName: "Sony Camera", price: 4500, quantity: 0},
+                {id: 3, productName: "Samsung QLED TV", price: 7745, quantity: 0},
+                {id: 4, productName: "Ipad Pro", price: 12400, quantity: 0},
+                {id: 5, productName: "Xbox", price: 7780, quantity: 0},
+                {id: 6, productName: "Dell Monitor", price: 8880900, quantity: 0},
+            ],
+        };
     };
+
+    // state = {
+    //     products: [
+    //         {id: 1, productName: "Iphone", price: 8900, quantity: 0},
+    //         {id: 2, productName: "Sony Camera", price: 4500, quantity: 0},
+    //         {id: 3, productName: "Samsung QLED TV", price: 7745, quantity: 0},
+    //         {id: 4, productName: "Ipad Pro", price: 12400, quantity: 0},
+    //         {id: 5, productName: "Xbox", price: 7780, quantity: 0},
+    //         {id: 6, productName: "Dell Monitor", price: 8880900, quantity: 0},
+    //     ],
+    // };
     render () {
+        console.log("render - ShoppingCart");
         return (
             <div className="container-fluid">
                 <h4>Shopping Cart</h4>
@@ -36,6 +56,20 @@ class ShoppingCart extends Component {
                 </div>
             </div>
         );
+    }
+
+    // executes after constructor & render methods(including child components life cycle phases) of current component
+    componentDidMount() {
+        console.log("componentDidMount - ShoppingCart");
+        // here you fetch data from data source/ API calls
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("componentDidUpdate - ShoppingCart", prevProps, prevState, this.props, this.state);
+
+        if(prevProps.x != this.props.x) {
+            // make http call
+        };
     }
 
     // executes when user clicks the + button
