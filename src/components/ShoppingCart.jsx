@@ -27,8 +27,8 @@ class ShoppingCart extends Component {
     render () {
         console.log("render - ShoppingCart");
         return (
-            <div className="container-fluid">
-                <h4>Shopping Cart</h4>
+            <div>
+                <h4 className="p-2">Shopping Cart</h4>
                 <div className="row">
                     {this.state.products.map(product => {
                         return (

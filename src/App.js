@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Login />} />
         <Route path="/dashboard" exact element={<Dashboard />} />
-        <Route path="/shopping-cart" exact element={<ShoppingCart />} />
-        <Route path="/customer-list" exact element={<CustomersList />} />
+        <Route path="/shopping" exact element={<ShoppingCart />} />
+        <Route path="/customers" exact element={<CustomersList />} />
         <Route path="*" element={<NoMatchFound />} />
       </Routes>
     </BrowserRouter>

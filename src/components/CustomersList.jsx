@@ -15,7 +15,7 @@ class CustomersList extends Component {
 
     render() {
         return(
-            <>
+            <div>
                 <h1 className=' border-bottom m-1 p-1'>
                     { this.state.pageTitle }
                     <span className="bg-dark -p-3 badge badge-secondary m-2">{this.state.customersCount}</span>
@@ -35,7 +35,7 @@ class CustomersList extends Component {
                         {this.getCustomerRow()}
                     </tbody>
                 </table> 
-            </>
+            </div>
         )
     }
 

@@ -12,7 +12,7 @@ class Login extends Component{
 
     render() {
         return(
-            <div className='col-lg-9 p-2'>
+            <div className='p-2'>
                 <h4 className="m-1 p-2 border-bottom">
                     Login
                 </h4>
