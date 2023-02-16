@@ -52,14 +52,12 @@ class ShoppingCart extends Component {
     }
 
     // executes after constructor & render methods(including child components life cycle phases) of current component
-    componentDidMount() {
+    componentDidMount = async() => {
         console.log("componentDidMount - ShoppingCart");
         // here you fetch data from data source/ API calls
-        let promise = fetch(" http://localhost:5000/products", { method: "GET" });
-        promise.then((res) => {
-            let promise2 = res.json();
-            promise2.then((products) => this.setState({ products: products }));
-        });
+        let response = await fetch(" http://localhost:5000/products", { method: "GET" });
+        let products = await response.json();
+        this.setState({ products: products });
     }
 
     componentDidUpdate(prevProps, prevState) {
