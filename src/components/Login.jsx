@@ -38,9 +38,13 @@ class Login extends Component{
         );
     }
 
-    onLoginClick = () => {
+    onLoginClick = async() => {
         // console.log(this.state);
-        if(this.state.email === "test@example.com" && this.state.password === "password") {
+        let response = await fetch(`http://localhost:5000/users?email=${this.state.email}&password=${this.state.password}`, {method:"GET"});
+        let body = await response.json();
+        console.log(body);
+        
+        if(body.length > 0) {
             // success message
             this.setState({
                 message: (
